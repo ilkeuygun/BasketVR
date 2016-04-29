@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{47885229-1FF7-A3F6-ACBB-ADE06940DDAE}") = "BasketVR", "Assembly-CSharp.csproj", "{3F54DBF0-20B4-7812-81F9-E5148C4A1E15}"
+EndProject
+Project("{47885229-1FF7-A3F6-ACBB-ADE06940DDAE}") = "BasketVR", "Assembly-CSharp-Editor.csproj", "{F697041D-5444-6469-0304-67AD81622350}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F54DBF0-20B4-7812-81F9-E5148C4A1E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F54DBF0-20B4-7812-81F9-E5148C4A1E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F54DBF0-20B4-7812-81F9-E5148C4A1E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F54DBF0-20B4-7812-81F9-E5148C4A1E15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F697041D-5444-6469-0304-67AD81622350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F697041D-5444-6469-0304-67AD81622350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F697041D-5444-6469-0304-67AD81622350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F697041D-5444-6469-0304-67AD81622350}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
