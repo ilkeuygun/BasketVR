@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using AssemblyCSharp;
 
 public class Shoot : MonoBehaviour {
 
@@ -19,16 +20,13 @@ public class Shoot : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		if (!Game.Current.HasMoreBalls) {
+			return;
+		}
+
 		if (Input.GetButtonDown ("Fire1"))
 		{
 			pressTime = Time.time;
-
-			for (int i = 10; i < 11; i++) {
-				Debug.Log("#### " + i + " ####");
-				for(int j=0; j < 20; j++) {
-					Debug.Log(1+j*0.1 + " log " + i + "= " + Math.Log (1+j*0.1, i));
-				}
-			} 
 		}
 		else if (Input.GetButtonUp ("Fire1"))
 		{
@@ -49,6 +47,8 @@ public class Shoot : MonoBehaviour {
 			};
 
 			currentBall.GetComponent<Rigidbody> ().AddForce (direction * force);
+
+			Game.Current.BallThrown ();
 		}
 	}
 }
