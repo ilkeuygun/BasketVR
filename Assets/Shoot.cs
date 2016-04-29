@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Shoot : MonoBehaviour {
 
@@ -7,6 +8,8 @@ public class Shoot : MonoBehaviour {
 	public GameObject ball;
 
 	private float pressTime;
+	private const float MIN_DURATION = 0.2f;
+	private const float MAX_DURATION = 1.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -19,11 +22,22 @@ public class Shoot : MonoBehaviour {
 		if (Input.GetButtonDown ("Fire1"))
 		{
 			pressTime = Time.time;
+
+			for (int i = 10; i < 11; i++) {
+				Debug.Log("#### " + i + " ####");
+				for(int j=0; j < 20; j++) {
+					Debug.Log(1+j*0.1 + " log " + i + "= " + Math.Log (1+j*0.1, i));
+				}
+			} 
 		}
 		else if (Input.GetButtonUp ("Fire1"))
 		{
+			float duration = Time.time - pressTime;
+			duration = Math.Min (duration, MAX_DURATION);
+			duration = Math.Max (duration, MIN_DURATION);
 
-			float force = (Time.time - pressTime) * 22000;
+			float force = (float)Math.Log10(1.5 + duration) * 30000;
+
 			Debug.Log ("force: " + force);
 
 
@@ -31,7 +45,7 @@ public class Shoot : MonoBehaviour {
 
 			Vector3 direction = new Vector3 () {
 				x = handTransform.forward.x,
-				y = handTransform.forward.y + 0.4f,
+				y = 0.8f,
 				z = handTransform.forward.z,
 			};
 
