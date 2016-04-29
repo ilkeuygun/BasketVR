@@ -131,7 +131,7 @@ public class OVRTrackerBounds : MonoBehaviour
 
 	void Update ()
 	{
-		if (!Application.isPlaying || !OVRManager.tracker.isPresent || Time.time < waitTime)
+		if (!Application.isPlaying || OVRManager.tracker == null || !OVRManager.tracker.isPresent || Time.time < waitTime)
 		{
 			if (arrowObject && arrowObject.activeSelf)
 				arrowObject.SetActive(false);
@@ -205,7 +205,7 @@ public class OVRTrackerBounds : MonoBehaviour
 
     void OnRenderObject()
 	{
-		if (!Application.isPlaying || !OVRManager.tracker.isPresent || Time.time < waitTime)
+		if (!Application.isPlaying || OVRManager.tracker == null || !OVRManager.tracker.isPresent || Time.time < waitTime)
 			return;
 
         // Full-screen fade

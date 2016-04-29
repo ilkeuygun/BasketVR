@@ -1,14 +1,24 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.AttachToProcess" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Shoot.cs">
     <Files>
-      <File FileName="Assets/Shoot.cs" Line="8" Column="40" />
+      <File FileName="Assets/Shoot.cs" Line="29" Column="46" />
+      <File FileName="Assets/OVR/Scripts/Util/OVRPlayerController.cs" Line="127" Column="3" />
+      <File FileName="Assets/OVR/Scripts/OVRCameraRig.cs" Line="135" Column="1" />
+      <File FileName="Assets/OVR/Scripts/Util/OVRTrackerBounds.cs" Line="208" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BasketVR" expanded="True">
-            <Node name="Assembly-CSharp" selected="True" />
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="OVR" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="Util" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Shoot.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
