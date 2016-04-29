@@ -48,7 +48,7 @@ public class Shoot : MonoBehaviour {
 
 			currentBall.GetComponent<Rigidbody> ().AddForce (direction * force);
 
-			Game.Current.BallThrown ();
+			Game.Current.BallThrown (currentBall);
 		}
 	}
 }

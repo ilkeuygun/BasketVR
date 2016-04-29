@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace AssemblyCSharp
 {
@@ -16,6 +17,7 @@ namespace AssemblyCSharp
 		public bool IsFinished { get; private set; }
 		public GameDifficulty Difficulty { get; set; }
 
+		private List<GameObject> _uncountedBalls; 
 
 		private static Game _current;
 		public static Game Current
@@ -35,9 +37,13 @@ namespace AssemblyCSharp
 			CountedBalls = 0;
 			HasMoreBalls = true;
 			IsFinished = false;
+
+			_uncountedBalls = new List<GameObject> ();
 		}
 
-		public void BallThrown() {
+		public void BallThrown(GameObject ball) {
+			_uncountedBalls.Add (ball);
+
 			CurrentBall++;
 
 			CurrentStep = CurrentBall / 3 + 1;
@@ -47,19 +53,29 @@ namespace AssemblyCSharp
 			}
 		}
 
-		public void BasketFail() {
-			CountedBalls++;
+		public void BasketFail(GameObject ball) {
+			if (_uncountedBalls.Contains(ball)) {
+				_uncountedBalls.Remove (ball);
 
-			checkFinished ();
+				CountedBalls++;
+
+				checkFinished ();
+
+				Debug.Log (SuccessCount + " " + CountedBalls);
+			}
 		}
 
-		public void BasketSuccess() {
-			SuccessCount++;
-			CountedBalls++;
+		public void BasketSuccess(GameObject ball) {
+			if (_uncountedBalls.Contains(ball)) {
+				_uncountedBalls.Remove (ball);
 
-			checkFinished ();
+				SuccessCount++;
+				CountedBalls++;
 
-			Debug.Log (SuccessCount + " " + CountedBalls);
+				checkFinished ();
+
+				Debug.Log (SuccessCount + " " + CountedBalls);
+			}
 		}
 
 		private void checkFinished() {
