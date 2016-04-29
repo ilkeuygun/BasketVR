@@ -40,7 +40,6 @@ public class Shoot : MonoBehaviour {
 
 			Debug.Log ("force: " + force);
 
-
 			GameObject currentBall = (GameObject)Instantiate (ball, handTransform.position, Quaternion.identity);
 
 			Vector3 direction = new Vector3 () {
