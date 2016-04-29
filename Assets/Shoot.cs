@@ -18,7 +18,7 @@ public class Shoot : MonoBehaviour {
 
 			Vector3 direction = new Vector3 () {
 				x = handTransform.forward.x,
-				y = handTransform.forward.y + 0.3f,
+				y = handTransform.forward.y + 0.4f,
 				z = handTransform.forward.z,
 			};
 
