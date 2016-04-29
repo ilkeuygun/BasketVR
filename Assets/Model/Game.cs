@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace AssemblyCSharp
 {
@@ -57,6 +58,8 @@ namespace AssemblyCSharp
 			CountedBalls++;
 
 			checkFinished ();
+
+			Debug.Log (SuccessCount + " " + CountedBalls);
 		}
 
 		private void checkFinished() {

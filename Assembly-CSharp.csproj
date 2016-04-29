@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BackKeyListener.cs" />
+     <Compile Include="Assets\Basket.cs" />
      <Compile Include="Assets\Model\Difficulty.cs" />
      <Compile Include="Assets\Model\Game.cs" />
      <Compile Include="Assets\OVR\Moonlight\Scripts\OVRDebugHeadController.cs" />
