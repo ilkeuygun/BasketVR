@@ -7,17 +7,25 @@ public class Shoot : MonoBehaviour {
 
 	public Transform handTransform;
 	public GameObject ball;
+	public GameObject line;
+
+	private const float MIN_BAR_POSITION = -33.76f;
+	private const float MAX_BAR_POSITION = 39.6f;
 
 	private OVRPlayerController player;
 	private float pressTime = 0;
-	private const float MIN_DURATION = 0.2f;
 	private const float MAX_DURATION = 1.0f;
+
+	private float barSize;
 
 	// Use this for initialization
 	void Start () {
 		Physics.gravity = new Vector3 (0, -160, 0);
 
 		player = GameObject.FindObjectOfType<OVRPlayerController> ();
+		line = GameObject.Find ("Line");
+
+		barSize = MAX_BAR_POSITION - MIN_BAR_POSITION;
 	}
 	
 	// Update is called once per frame
@@ -43,7 +51,6 @@ public class Shoot : MonoBehaviour {
 			{
 				float duration = Time.time - pressTime;
 				duration = Math.Min (duration, MAX_DURATION);
-				duration = Math.Max (duration, MIN_DURATION);
 
 				float force = (float)Math.Log10(1.5 + duration) * 30000;
 
@@ -63,7 +70,25 @@ public class Shoot : MonoBehaviour {
 
 				pressTime = 0;
 			}
-		}	
+		}
+
+		if (pressTime == 0) {
+			line.transform.localPosition = new Vector3 (
+				line.transform.position.x,
+				line.transform.position.y,
+				MIN_BAR_POSITION
+			);
+		}
+		else {
+			float currentPressTime = Time.time - pressTime;
+			currentPressTime = Math.Min (currentPressTime, MAX_DURATION);
+
+			line.transform.localPosition = new Vector3 (
+				line.transform.position.x,
+				line.transform.position.y,
+				MIN_BAR_POSITION + barSize * currentPressTime
+			);
+		}
 			
 		movePlayer ();
 	}
