@@ -14,6 +14,7 @@ namespace AssemblyCSharp
 		public int SuccessCount { get; private set; }
 		public int CountedBalls { get; private set; }
 		public bool HasMoreBalls { get; private set; }
+        public bool IsRunning { get; set; }
 		public bool IsFinished { get; private set; }
 		public GameDifficulty Difficulty { get; set; }
 
@@ -36,6 +37,7 @@ namespace AssemblyCSharp
 			SuccessCount = 0;
 			CountedBalls = 0;
 			HasMoreBalls = true;
+            IsRunning = false;
 			IsFinished = false;
 
 			_uncountedBalls = new List<GameObject> ();

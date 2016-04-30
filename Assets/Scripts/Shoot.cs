@@ -20,7 +20,13 @@ public class Shoot : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if (!Game.Current.HasMoreBalls) {
+        if (!Game.Current.IsRunning)
+        {
+            return;
+        }
+
+		if (!Game.Current.HasMoreBalls)
+        {
 			return;
 		}
 
