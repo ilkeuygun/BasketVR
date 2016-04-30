@@ -15,9 +15,14 @@ namespace AssemblyCSharp
 		public int CountedBalls { get; private set; }
 		public bool HasMoreBalls { get; private set; }
         public bool IsRunning { get; set; }
-		public bool IsFinished { get; private set; }
+		public bool IsFinished 
+		{ 
+			get; 
+			set; 
+		}
 		public GameDifficulty Difficulty { get; set; }
 		public bool IsMoving { get; set; }
+		public TextMesh ScoreBoard;
 
 		private List<GameObject> _uncountedBalls; 
 

@@ -12,7 +12,7 @@ public class Shoot : MonoBehaviour {
 
 	private const float MIN_BAR_POSITION = -33.76f;
 	private const float MAX_BAR_POSITION = 39.6f;
-	private const float GAME_TIME = 60.0f;
+	private const float GAME_TIME = 75.0f;
 
 	private OVRPlayerController player;
 	private float pressTime = 0;
@@ -50,7 +50,9 @@ public class Shoot : MonoBehaviour {
 		TimeBoard.text = timeLeft.ToString ("0.0");
 
 		if (timeLeft <= 0.0f) {
+			// Time is up
 			TimeBoard.text = "0";
+			Game.Current.IsFinished = true;
 			return;
 		} else if (timeLeft <= 10.0f) {
 			TimeBoard.color = Color.red; 
