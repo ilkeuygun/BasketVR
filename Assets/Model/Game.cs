@@ -17,6 +17,7 @@ namespace AssemblyCSharp
         public bool IsRunning { get; set; }
 		public bool IsFinished { get; private set; }
 		public GameDifficulty Difficulty { get; set; }
+		public bool IsMoving { get; set; }
 
 		private List<GameObject> _uncountedBalls; 
 
@@ -39,6 +40,7 @@ namespace AssemblyCSharp
 			HasMoreBalls = true;
             IsRunning = false;
 			IsFinished = false;
+			IsMoving = false;
 
 			_uncountedBalls = new List<GameObject> ();
 		}
@@ -48,7 +50,7 @@ namespace AssemblyCSharp
 
 			CurrentBall++;
 
-			CurrentStep = CurrentBall / 3 + 1;
+			CurrentStep = (CurrentBall + BALL_COUNT_IN_STEP - 1) / BALL_COUNT_IN_STEP;
 
 			if (CurrentBall > BALL_COUNT_IN_STEP * STEP_COUNT) {
 				HasMoreBalls = false;
@@ -84,6 +86,10 @@ namespace AssemblyCSharp
 			if (CountedBalls == BALL_COUNT_IN_STEP * STEP_COUNT) {
 				IsFinished = true;
 			}
+		}
+
+		public bool IsFirstBallOfStep() {
+			return CurrentBall % BALL_COUNT_IN_STEP == 1;	
 		}
 	}
 }
