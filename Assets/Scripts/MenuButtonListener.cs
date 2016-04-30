@@ -8,6 +8,7 @@ public class MenuButtonListener : MonoBehaviour {
 
     public Canvas MainMenuCanvas;
     public Button ContinueButton;
+    public Light LightSource;
 
 	// Use this for initialization
 	void Start () {
@@ -39,5 +40,6 @@ public class MenuButtonListener : MonoBehaviour {
     {
         MainMenuCanvas.enabled = false;
         Game.Current.IsRunning = true;
+        LightSource.intensity = 1f;
     }
 }
