@@ -21,10 +21,26 @@ public class BackKeyListener : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ContinueCanvas.enabled = true;
-            MainMenuCanvas.enabled = true;
-            Game.Current.IsRunning = false;
-            LightSource.intensity = 0f;
+            if (MainMenuCanvas.enabled)
+            {
+                // Game has started before
+                if (ContinueCanvas.enabled)
+                {
+                    // Hide Menu
+                    ContinueCanvas.enabled = false;
+                    MainMenuCanvas.enabled = false;
+                    Game.Current.IsRunning = true;
+                    LightSource.intensity = 1f;
+                }
+            }
+            else
+            {
+                // Show Menu
+                ContinueCanvas.enabled = true;
+                MainMenuCanvas.enabled = true;
+                Game.Current.IsRunning = false;
+                LightSource.intensity = 0f;
+            }
         }
     }
 }
