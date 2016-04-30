@@ -7,12 +7,11 @@ using UnityEngine.SceneManagement;
 public class MenuButtonListener : MonoBehaviour {
 
     public Canvas MainMenuCanvas;
-    public Button ContinueButton;
     public Light LightSource;
 
 	// Use this for initialization
 	void Start () {
-        ContinueButton.enabled = false;
+
 	}
 	
 	// Update is called once per frame

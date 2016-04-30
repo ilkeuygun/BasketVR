@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-using AssemblyCSharp;
+﻿using AssemblyCSharp;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class BackKeyListener : MonoBehaviour {
@@ -8,12 +7,12 @@ public class BackKeyListener : MonoBehaviour {
     public Canvas MainMenuCanvas;
     public Button StartButton;
     public Text StartButtonText;
-    public Canvas ContinueCanvas;
+    public Button ContinueButton;
     public Light LightSource;
 
     // Use this for initialization
     void Start () {
-        ContinueCanvas.enabled = false;
+        ContinueButton.gameObject.SetActive(false);
         LightSource.intensity = 0f;
 	}
 	
@@ -24,10 +23,10 @@ public class BackKeyListener : MonoBehaviour {
             if (MainMenuCanvas.enabled)
             {
                 // Game has started before
-                if (ContinueCanvas.enabled)
+                if (ContinueButton.gameObject.activeInHierarchy)
                 {
                     // Hide Menu
-                    ContinueCanvas.enabled = false;
+                    ContinueButton.gameObject.SetActive(false);
                     MainMenuCanvas.enabled = false;
                     Game.Current.IsRunning = true;
                     LightSource.intensity = 1f;
@@ -36,7 +35,7 @@ public class BackKeyListener : MonoBehaviour {
             else
             {
                 // Show Menu
-                ContinueCanvas.enabled = true;
+                ContinueButton.gameObject.SetActive(true);
                 MainMenuCanvas.enabled = true;
                 Game.Current.IsRunning = false;
                 LightSource.intensity = 0f;
