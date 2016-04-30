@@ -8,15 +8,18 @@ public class Shoot : MonoBehaviour {
 	public Transform handTransform;
 	public GameObject ball;
 	public GameObject line;
+	public TextMesh TimeBoard;
 
 	private const float MIN_BAR_POSITION = -33.76f;
 	private const float MAX_BAR_POSITION = 39.6f;
+	private const float GAME_TIME = 60.0f;
 
 	private OVRPlayerController player;
 	private float pressTime = 0;
 	private const float MAX_DURATION = 1.0f;
 
 	private float barSize;
+	private float timeLeft;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +29,8 @@ public class Shoot : MonoBehaviour {
 		line = GameObject.Find ("Line");
 
 		barSize = MAX_BAR_POSITION - MIN_BAR_POSITION;
+		timeLeft = GAME_TIME;
+		TimeBoard.color = Color.green;
 	}
 	
 	// Update is called once per frame
@@ -39,6 +44,16 @@ public class Shoot : MonoBehaviour {
 		if (!Game.Current.HasMoreBalls)
         {
 			return;
+		}
+
+		timeLeft -= Time.deltaTime;
+		TimeBoard.text = timeLeft.ToString ("0.0");
+
+		if (timeLeft <= 0.0f) {
+			TimeBoard.text = "0";
+			return;
+		} else if (timeLeft <= 10.0f) {
+			TimeBoard.color = Color.red; 
 		}
 
 		if (!Game.Current.IsMoving)
