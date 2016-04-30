@@ -8,17 +8,18 @@ public class BackKeyListener : MonoBehaviour {
     public Canvas MainMenuCanvas;
     public Button StartButton;
     public Text StartButtonText;
+    public Canvas ContinueCanvas;
 
     // Use this for initialization
     void Start () {
-       
+        ContinueCanvas.enabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            StartButtonText.text = "CONTINUE GAME";
+            ContinueCanvas.enabled = true;
             MainMenuCanvas.enabled = true;
             Game.Current.IsRunning = false;
         }

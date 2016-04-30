@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\BasketFail.cs" />
     <Compile Include="Assets\Scripts\MenuButtonListener.cs" />
     <Compile Include="Assets\Scripts\Shoot.cs" />
+    <Compile Include="Assets\Scripts\VRInputModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\OVR\Moonlight\Resources\Unlit Transparent Color.shader" />
